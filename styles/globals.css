@@ -1,0 +1,12 @@
+body {
+    border: 1px solid black;
+    height: 50vh;
+
+    > main {
+        border: 1px solid blue;
+    }
+
+    > div {
+        border: 1px solid red;
+    }
+}
