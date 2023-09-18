@@ -13,12 +13,13 @@ const StyledCard = styled.div`
 `;
 
 const ProductCard = ({ product }) => {
-
-    return <StyledCard>
-        <div>Name: {product?.title || 'no title'}</div>
-        <div>Description: { product?.description || 'no desc' }</div>
-        <div>Price: $ { product?.price || 'no price' }</div>
-  </StyledCard>;
+  return (
+    <StyledCard>
+      <div>Name: {product?.title || "no title"}</div>
+      <div>Description: {product?.description || "no desc"}</div>
+      <div>Price: $ {product?.price || "no price"}</div>
+    </StyledCard>
+  );
 };
 
 export default ProductCard;

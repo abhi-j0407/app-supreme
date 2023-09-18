@@ -4,11 +4,11 @@ import ProductsGrid from "../components/ProductsGrid";
 import Cart from "../components/Cart";
 
 const StyledNav = styled.nav`
-background-color: aliceblue;
-display: flex;
-justify-content: space-between;
-align-items: center;
-`
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 const Shop = () => {
   return (

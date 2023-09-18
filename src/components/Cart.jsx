@@ -25,7 +25,7 @@ const StyledCart = styled.div`
 const Cart = () => {
   const [show, setShow] = useState(false);
 
-    function closeCart(e) {
+  function closeCart(e) {
     //   Closes modal if clicked on close or outside modal
     if (
       e.target.matches("#button-close-modal") ||
@@ -40,7 +40,7 @@ const Cart = () => {
       <button onClick={closeCart}>Cart</button>
       {show && (
         <StyledModal onClick={closeCart}>
-          <StyledCart id='cart-modal'>
+          <StyledCart id="cart-modal">
             <header
               style={{ display: "flex", justifyContent: "space-between" }}
             >
