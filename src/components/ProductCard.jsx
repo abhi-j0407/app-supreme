@@ -13,7 +13,6 @@ const StyledCard = styled.div`
 `;
 
 const ProductCard = ({ product }) => {
-  console.log(product);
 
     return <StyledCard>
         <div>Name: {product?.title || 'no title'}</div>

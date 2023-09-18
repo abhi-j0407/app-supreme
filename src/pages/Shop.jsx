@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ProductsGrid from "../components/ProductsGrid";
+import Cart from "../components/Cart";
 
 const StyledNav = styled.nav`
 background-color: aliceblue;
@@ -17,6 +18,7 @@ const Shop = () => {
         <Link to="/register">
           <button>Register</button>
         </Link>
+        <Cart />
       </StyledNav>
       <ProductsGrid />
     </div>
