@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import styled from "styled-components";
+import { fetchProducts } from "../utils/productsStore";
 
 const StyledGrid = styled.div`
   display: flex;
@@ -14,14 +15,13 @@ const StyledGrid = styled.div`
 const ProductsGrid = () => {
   const [products, setProducts] = useState([]);
 
-  const fetchProducts = async () => {
-    const response = await fetch("https://dummyjson.com/products");
-    const data = await response.json();
-    setProducts(data.products);
+  const getProducts = async () => {
+    const allProducts = await fetchProducts();
+    setProducts(allProducts);
   };
 
   useEffect(() => {
-    fetchProducts();
+    getProducts();
   }, []);
 
   return (

@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
+import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
 
 const StyledCard = styled.div`
   border: 1px solid red;
@@ -13,11 +15,15 @@ const StyledCard = styled.div`
 `;
 
 const ProductCard = ({ product }) => {
+
+  const cart = useContext(CartContext);
+
   return (
     <StyledCard>
       <div>Name: {product?.title || "no title"}</div>
       <div>Description: {product?.description || "no desc"}</div>
       <div>Price: $ {product?.price || "no price"}</div>
+      <button onClick={() => cart.addOneToCart(product?.id)}>Add to cart</button>
     </StyledCard>
   );
 };

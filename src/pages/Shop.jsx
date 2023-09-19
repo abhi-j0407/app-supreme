@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ProductsGrid from "../components/ProductsGrid";
 import Cart from "../components/Cart";
+import CartProvider from "../contexts/CartContext";
 
 const StyledNav = styled.nav`
   background-color: aliceblue;
@@ -12,16 +13,18 @@ const StyledNav = styled.nav`
 
 const Shop = () => {
   return (
-    <div>
-      <StyledNav>
-        <h1>Shop</h1>
-        <Link to="/register">
-          <button>Register</button>
-        </Link>
-        <Cart />
-      </StyledNav>
-      <ProductsGrid />
-    </div>
+    <CartProvider>
+      <div>
+        <StyledNav>
+          <h1>Shop</h1>
+          <Link to="/register">
+            <button>Register</button>
+          </Link>
+          <Cart />
+        </StyledNav>
+        <ProductsGrid />
+      </div>
+    </CartProvider>
   );
 };
 
