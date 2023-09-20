@@ -33,7 +33,9 @@ const ProductCard = ({ product }) => {
           <button onClick={() => cart.removeOneFromCart(product?.id)}>-</button>
           <p>In cart: {productQuantity}</p>
           <button onClick={() => cart.addOneToCart(product?.id)}>+</button>
-          <button onClick={() => cart.deleteFromCart(product?.id)}>Remove from Cart</button>
+          <button onClick={() => cart.deleteFromCart(product?.id)}>
+            Remove from Cart
+          </button>
         </StyledButtonsArray>
       ) : (
         <button onClick={() => cart.addOneToCart(product?.id)}>

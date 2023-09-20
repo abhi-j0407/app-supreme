@@ -34,10 +34,8 @@ const Cart = () => {
   const [totalCost, setTotalCost] = useState(0);
 
   useEffect(() => {
-    console.log(cart.getTotalCost())
-    cart.getTotalCost().then(cost => setTotalCost(cost));
-  }, [cart])
-  
+    cart.getTotalCost().then((cost) => setTotalCost(cost));
+  }, [cart]);
 
   const totalProducts = cart.items.reduce(
     (sum, product) => sum + product.quantity,
@@ -69,10 +67,14 @@ const Cart = () => {
               {cart.items.map((item) => (
                 <CartRow key={item.id}>
                   <p>{item.id}</p>
-                  <button onClick={() => cart.removeOneFromCart(item.id)}>-</button>
+                  <button onClick={() => cart.removeOneFromCart(item.id)}>
+                    -
+                  </button>
                   <p>{item.quantity}</p>
                   <button onClick={() => cart.addOneToCart(item.id)}>+</button>
-                  <button onClick={() => cart.deleteFromCart(item.id)}>Remove</button>
+                  <button onClick={() => cart.deleteFromCart(item.id)}>
+                    Remove
+                  </button>
                 </CartRow>
               ))}
               <h2>Total: {totalCost}</h2>
