@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { CartContext } from "../contexts/CartContext";
 
 const StyledModal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
@@ -22,8 +23,26 @@ const StyledCart = styled.div`
   padding: 25px;
 `;
 
+const CartRow = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
 const Cart = () => {
   const [show, setShow] = useState(false);
+  const cart = useContext(CartContext);
+  const [totalCost, setTotalCost] = useState(0);
+
+  useEffect(() => {
+    console.log(cart.getTotalCost())
+    cart.getTotalCost().then(cost => setTotalCost(cost));
+  }, [cart])
+  
+
+  const totalProducts = cart.items.reduce(
+    (sum, product) => sum + product.quantity,
+    0
+  );
 
   function closeCart(e) {
     //   Closes modal if clicked on close or outside modal
@@ -32,12 +51,11 @@ const Cart = () => {
       !e.target.closest("#cart-modal")
     )
       setShow((prevShow) => !prevShow);
-    console.log("Close cart clicked");
   }
 
   return (
     <>
-      <button onClick={closeCart}>Cart</button>
+      <button onClick={closeCart}>Cart: {totalProducts}</button>
       {show && (
         <StyledModal onClick={closeCart}>
           <StyledCart id="cart-modal">
@@ -47,6 +65,18 @@ const Cart = () => {
               <h2>Cart</h2>
               <button id="button-close-modal">Close</button>
             </header>
+            <section>
+              {cart.items.map((item) => (
+                <CartRow key={item.id}>
+                  <p>{item.id}</p>
+                  <button onClick={() => cart.removeOneFromCart(item.id)}>-</button>
+                  <p>{item.quantity}</p>
+                  <button onClick={() => cart.addOneToCart(item.id)}>+</button>
+                  <button onClick={() => cart.deleteFromCart(item.id)}>Remove</button>
+                </CartRow>
+              ))}
+              <h2>Total: {totalCost}</h2>
+            </section>
           </StyledCart>
         </StyledModal>
       )}

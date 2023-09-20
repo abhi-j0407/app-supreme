@@ -14,16 +14,32 @@ const StyledCard = styled.div`
   align-items: center;
 `;
 
-const ProductCard = ({ product }) => {
+const StyledButtonsArray = styled.div`
+  display: flex;
+  gap: 20px;
+`;
 
+const ProductCard = ({ product }) => {
   const cart = useContext(CartContext);
+  const productQuantity = cart.getProductQuantity(product?.id);
 
   return (
     <StyledCard>
       <div>Name: {product?.title || "no title"}</div>
       <div>Description: {product?.description || "no desc"}</div>
       <div>Price: $ {product?.price || "no price"}</div>
-      <button onClick={() => cart.addOneToCart(product?.id)}>Add to cart</button>
+      {productQuantity > 0 ? (
+        <StyledButtonsArray>
+          <button onClick={() => cart.removeOneFromCart(product?.id)}>-</button>
+          <p>In cart: {productQuantity}</p>
+          <button onClick={() => cart.addOneToCart(product?.id)}>+</button>
+          <button onClick={() => cart.deleteFromCart(product?.id)}>Remove from Cart</button>
+        </StyledButtonsArray>
+      ) : (
+        <button onClick={() => cart.addOneToCart(product?.id)}>
+          Add to cart
+        </button>
+      )}
     </StyledCard>
   );
 };

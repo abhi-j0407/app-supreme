@@ -5,9 +5,15 @@ const fetchProducts = async () => {
 };
 
 const fetchProduct = async (id) => {
-  const response = await fetch(`https://dummyjson.com/products/${id}`);
-  const data = await response.json();
-  console.log(data);
+  const product = await fetch(`https://dummyjson.com/products/${id}`)
+  .then((response) => response.json())
+  .then((data) => {
+    return data;
+  });
+
+  return product;
 };
+
+
 
 export { fetchProducts, fetchProduct };

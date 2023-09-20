@@ -33,7 +33,7 @@ export function CartProvider({ children }) {
       setCartProducts((prevCart) =>
         prevCart.map((product) =>
           product.id === id
-            ? { ...product, quantity: ++product.quantity }
+            ? { ...product, quantity: product.quantity + 1 }
             : product
         )
       );
@@ -54,24 +54,27 @@ export function CartProvider({ children }) {
       setCartProducts((prevCart) =>
         prevCart.map((product) =>
           product.id === id
-            ? { ...product, quantity: --product.quantity }
+            ? { ...product, quantity: product.quantity - 1 }
             : product
         )
       );
-    };
-    
-    const getTotalCost = async () => {
-        await cartProducts.reduce(async (prevPromise, product) => {
-            let totalCost = prevPromise;
-            const productDetails = await fetchProduct(product.id);
-            totalCost += productDetails.price;
+  };
 
-            return totalCost;
-        }, Promise.resolve([]))
-    }
+  const getTotalCost = async () => {
+
+    const productPromises = cartProducts.map(async (product) => {
+      const productData = await fetchProduct(product.id);
+      return productData.price * product.quantity;
+    });
+
+    const prices = await Promise.all(productPromises);
+    const total = prices.reduce((sum, price) => sum + price, 0);
+
+    return total;
+  };
 
   const contextValue = {
-    items: [],
+    items: cartProducts,
     getProductQuantity,
     addOneToCart,
     removeOneFromCart,
