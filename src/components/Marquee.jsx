@@ -5,15 +5,16 @@ const StyledMarquee = styled.div`
   width: 100%;
   display: flex;
   gap: 15px;
-  animation: scrollText 33s infinite linear;
+  animation: scrollText 90s infinite linear;
 `;
 
 const StyledContainer = styled.div`
   color: var(--accent-biege);
   background-color: var(--accent-light-olive);
   border-radius: 50px;
-  padding: 5px 10px;
+  padding: 10px 0px;
   overflow: hidden;
+  white-space: nowrap;
 `;
 
 const Marquee = () => {

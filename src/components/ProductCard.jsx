@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { CartContext } from "../contexts/CartContext";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
+import Button from "./Button";
 
 const StyledCard = styled.div`
   width: 420px;
@@ -22,11 +23,11 @@ const StyledImageDiv = styled.div`
   }
 `;
 
-const StyledButtonsArray = styled.div`
+const StyledButton = styled.div`
   display: flex;
   gap: 20px;
   position: absolute;
-  right: 40px;
+  right: 25px;
   bottom: -15px;
 `;
 
@@ -41,7 +42,7 @@ const StyledContent = styled.div`
   > div {
     display: flex;
     justify-content: space-between;
-    padding-right: 20px;
+    padding-right: 10px;
     font-size: 20px;
 
     > h4 {
@@ -65,48 +66,46 @@ const StyledContent = styled.div`
   }
 `;
 
+function randomIntFromInterval(min, max) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 const ProductCard = ({ product }) => {
   const cart = useContext(CartContext);
   const productQuantity = cart.getProductQuantity(product?.id);
+  const randomImg = useRef(randomIntFromInterval(1, 5));
+  
 
   return (
-    <>
-      {/* <StyledCard>
-      <div>Name: {product?.title || "no title"}</div>
-      <div>Description: {product?.description || "no desc"}</div>
-      <div>Price: $ {product?.price || "no price"}</div>
-      {productQuantity > 0 ? (
-        <StyledButtonsArray>
-          <button onClick={() => cart.removeOneFromCart(product?.id)}>-</button>
-          <p>In cart: {productQuantity}</p>
-          <button onClick={() => cart.addOneToCart(product?.id)}>+</button>
-          <button onClick={() => cart.deleteFromCart(product?.id)}>
-            Remove from Cart
-          </button>
-        </StyledButtonsArray>
-      ) : (
-        <button onClick={() => cart.addOneToCart(product?.id)}>
-          Add to cart
-        </button>
-      )}
-      </StyledCard> */}
-      <StyledCard>
-        <StyledImageDiv>
-          <img src="/src/assets/images/product (2).jpg" alt="" />
-          <StyledButtonsArray>
-            <button>add</button>
-          </StyledButtonsArray>
-        </StyledImageDiv>
-        <StyledContent
-        >
-          <div>
-            <h4>{product?.title || "No Title"}</h4>
-            <p>${product?.price || "no price"}</p>
-          </div>
-          <p>{product?.description}</p>
-        </StyledContent>
-      </StyledCard>
-    </>
+    <StyledCard>
+      <StyledImageDiv>
+        <img src={`/src/assets/images/product (${randomImg.current}).jpg`} alt="" />
+        <StyledButton>
+          {productQuantity > 0 ? (
+            <>
+              <Button onClick={() => cart.removeOneFromCart(product?.id)}>
+                -
+              </Button>
+              <Button>{productQuantity}</Button>
+              <Button onClick={() => cart.addOneToCart(product?.id)}>+</Button>
+              <Button onClick={() => cart.deleteFromCart(product?.id)}>
+                Remove
+              </Button>
+            </>
+          ) : (
+            <Button onClick={() => cart.addOneToCart(product?.id)}>Add</Button>
+          )}
+        </StyledButton>
+      </StyledImageDiv>
+      <StyledContent>
+        <div>
+          <h4>{product?.title || "No Title"}</h4>
+          <p>${product?.price || "no price"}</p>
+        </div>
+        <p>{product?.description}</p>
+      </StyledContent>
+    </StyledCard>
   );
 };
 

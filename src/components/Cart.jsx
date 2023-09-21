@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { CartContext } from "../contexts/CartContext";
+import Button from "./Button";
 
 const StyledModal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
@@ -53,7 +54,7 @@ const Cart = () => {
 
   return (
     <>
-      <button onClick={closeCart}>Cart: {totalProducts}</button>
+      <Button onClick={closeCart}>Cart: {totalProducts}</Button>
       {show && (
         <StyledModal onClick={closeCart}>
           <StyledCart id="cart-modal">
