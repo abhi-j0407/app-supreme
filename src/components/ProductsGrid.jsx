@@ -7,9 +7,8 @@ const StyledGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  border: 1px solid green;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
 `;
 
 const ProductsGrid = () => {

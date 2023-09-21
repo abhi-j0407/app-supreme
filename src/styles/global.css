@@ -44,8 +44,20 @@
     --accent-light-olive: #3F4E4F;
     --accent-brown: #A27B5C;
     --accent-biege: #DCD7C9;
+    --accent-cream: #FAF0E6;
   }
 
   .main-container {
-    background-color: var(--accent-dark-olive);
+    background-color: var(--accent-light-olive);
+    color: var(--accent-biege);
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  @keyframes scrollText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(50%);
+    }
   }

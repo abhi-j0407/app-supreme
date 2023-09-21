@@ -6,6 +6,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
 `;
 
 const Navbar = () => {
