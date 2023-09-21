@@ -1,9 +1,0 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.main-container {
-  background-color: antiquewhite;
-  min-height: 100vh;
-}
