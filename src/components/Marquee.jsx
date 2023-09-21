@@ -15,6 +15,7 @@ const StyledContainer = styled.div`
   padding: 10px 0px;
   overflow: hidden;
   white-space: nowrap;
+  filter: drop-shadow(0px 6px 10px #121212);
 `;
 
 const Marquee = () => {

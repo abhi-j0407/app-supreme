@@ -9,11 +9,13 @@ const StyledCard = styled.div`
   background-color: var(--accent-light-olive);
   border-radius: 30px;
   overflow: hidden;
+  filter: drop-shadow(0px 6px 10px #121212);
 `;
 
 const StyledImageDiv = styled.div`
   position: relative;
   width: 100%;
+  filter: drop-shadow(0px 10px 17px var(--accent-dark-olive));
 
   > img {
     height: 300px;

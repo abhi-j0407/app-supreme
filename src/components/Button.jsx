@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 const StyledButton = styled.div`
-  padding: 2px 15px;
+  padding: 5px 15px;
   min-width: 35px;
   display: flex;
   justify-content: center;
@@ -14,6 +14,7 @@ const StyledButton = styled.div`
   font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 `;
 
 const Button = ({ children, onClick }) => {

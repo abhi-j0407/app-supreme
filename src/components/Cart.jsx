@@ -54,7 +54,7 @@ const Cart = () => {
 
   return (
     <>
-      <Button onClick={closeCart}>Cart: {totalProducts}</Button>
+      <Button onClick={closeCart}>{ totalProducts > 0 ? `Cart : ${totalProducts}` : 'Cart Empty' }</Button>
       {show && (
         <StyledModal onClick={closeCart}>
           <StyledCart id="cart-modal">
