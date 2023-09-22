@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
 
   > h1 {
     font-size: 40px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     letter-spacing: 2px;
   }
@@ -19,12 +19,9 @@ const StyledNav = styled.nav`
 const Navbar = () => {
   return (
     <StyledNav>
-        <h1>Catalog</h1>
-        {/* <Link to="/register">
-          <button>Register</button>
-        </Link> */}
-        <Cart />
-      </StyledNav>
+      <h1>Catalog</h1>
+      <Cart />
+    </StyledNav>
   );
 };
 

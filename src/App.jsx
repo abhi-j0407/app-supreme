@@ -4,6 +4,7 @@ import Shop from "./pages/Shop";
 import Register from "./pages/Register";
 import CartProvider from "./contexts/CartContext";
 import PageNav from "./components/PageNav";
+import Tube from "./pages/Tube";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Shop />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/tube" element={<Tube />} />
           </Routes>
         </Router>
       </CartProvider>

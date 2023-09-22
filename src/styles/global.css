@@ -51,6 +51,8 @@
     background-color: var(--accent-light-olive);
     color: var(--accent-biege);
     font-family: 'Roboto Mono', monospace;
+
+    padding: 20px 1vw;
   }
 
   @keyframes scrollText {

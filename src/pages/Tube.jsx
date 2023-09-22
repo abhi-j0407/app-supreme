@@ -14,14 +14,13 @@ const StyledContainer = styled.section`
   gap: 20px;
 `;
 
-const Shop = () => {
+const Tube = () => {
   return (
     <StyledContainer>
-      <Marquee />
       <Navbar />
       <ProductsGrid />
     </StyledContainer>
   );
 };
 
-export default Shop;
+export default Tube;
