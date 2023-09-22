@@ -1,7 +1,7 @@
+import "../styles/tubeStyles.css"
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
 import ProductsGrid from "../components/ProductsGrid";
-import Marquee from "../components/Marquee";
+import { Navbar } from "../components/Tube";
 
 const StyledContainer = styled.section`
   margin: auto;
