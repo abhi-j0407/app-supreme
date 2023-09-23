@@ -13,6 +13,7 @@ const Navbar = () => (
       background: "#000",
       top: 0,
       justifyContent: "space-between",
+      borderRadius: '50px'
     }}
   >
     <Link to="/tube" style={{ display: "flex", alignItems: "center" }}>

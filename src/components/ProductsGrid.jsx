@@ -25,7 +25,6 @@ const ProductsGrid = () => {
 
   return (
     <StyledGrid>
-      <ProductCard />
       {products.map((product) => (
         <ProductCard product={product} key={product?.id} />
       ))}

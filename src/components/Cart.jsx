@@ -18,7 +18,7 @@ const StyledModal = styled.div`
 const StyledCart = styled.div`
   width: 500px;
   height: 500px;
-  background-color: antiquewhite;
+  background-color: var(--accent-light-olive);
   border-radius: 20px;
   z-index: 3;
   padding: 25px;
@@ -27,6 +27,7 @@ const StyledCart = styled.div`
 const CartRow = styled.div`
   display: flex;
   gap: 20px;
+  margin-block: 10px;
 `;
 
 const Cart = () => {
@@ -59,26 +60,26 @@ const Cart = () => {
         <StyledModal onClick={closeCart}>
           <StyledCart id="cart-modal">
             <header
-              style={{ display: "flex", justifyContent: "space-between" }}
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: '40px' }}
             >
               <h2>Cart</h2>
-              <button id="button-close-modal">Close</button>
+              <Button id="button-close-modal">Close</Button>
             </header>
             <section>
               {cart.items.map((item) => (
                 <CartRow key={item.id}>
                   <p>{item.id}</p>
-                  <button onClick={() => cart.removeOneFromCart(item.id)}>
+                  <Button onClick={() => cart.removeOneFromCart(item.id)}>
                     -
-                  </button>
+                  </Button>
                   <p>{item.quantity}</p>
-                  <button onClick={() => cart.addOneToCart(item.id)}>+</button>
-                  <button onClick={() => cart.deleteFromCart(item.id)}>
+                  <Button onClick={() => cart.addOneToCart(item.id)}>+</Button>
+                  <Button onClick={() => cart.deleteFromCart(item.id)}>
                     Remove
-                  </button>
+                  </Button>
                 </CartRow>
               ))}
-              <h2>Total: {totalCost}</h2>
+              <h2 style={{marginTop: '40px'}}>Total: {totalCost}</h2>
             </section>
           </StyledCart>
         </StyledModal>
