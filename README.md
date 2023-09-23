@@ -1,8 +1,21 @@
-# React + Vite
+# Screenshots
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Screenshot Homepage](./assets/MERNAuth_01.jpg)
 
-Currently, two official plugins are available:
+![Screenshot Register](./assets/MERNAuth_02.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot LoggedIn](./assets/MERNAuth_03.jpg)
+
+![Screenshot Edit](./assets/MERNAuth_04.jpg)
+
+# Description
+
+- A React based SPA.
+- Serves as a consolidation of multiple personal practice projects including an E-Commerce Store, and a Youtube clone.
+- Frontend implements React, Context API, React-Router-DOM, Styled Components, Material UI, etc. 
+
+# Instructions
+
+- Clone repository.
+- Change directory to project folder, and run 'npm install' in terminal to install the required dependencies.
+- To run project, run command 'npm run dev'.
