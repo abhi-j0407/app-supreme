@@ -1,12 +1,10 @@
 # Screenshots
 
-![Screenshot Homepage](./assets/MERNAuth_01.jpg)
+![Screenshot Shop](./public/screenshots/Shop%2001.jpg)
 
-![Screenshot Register](./assets/MERNAuth_02.jpg)
+![Screenshot Tube](./public/screenshots/Tube%2001.jpg)
 
-![Screenshot LoggedIn](./assets/MERNAuth_03.jpg)
-
-![Screenshot Edit](./assets/MERNAuth_04.jpg)
+![Screenshot Video](./public/screenshots/Tube%2002.jpg)
 
 # Description
 

@@ -10,7 +10,7 @@ const Navbar = () => (
     p={2}
     sx={{
       position: "sticky",
-      background: "#000",
+      background: "transparent",
       top: 0,
       justifyContent: "space-between",
       borderRadius: '50px'
